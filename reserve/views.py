@@ -32,7 +32,8 @@ def W_reserve(request,id):
             else:
                 case = 1
                 error = False
-                time1 = timezone.now() 
+                time1 = timezone.now()
+                time1 = time1.strftime('%Y %m %d')
                 time2 = timezone.now() + timedelta(minutes=10) # 현재 이용자 예약 진행해줘야
                 return render(request,'reserve/reserve.html',{
                     'Washer':Washer_,
