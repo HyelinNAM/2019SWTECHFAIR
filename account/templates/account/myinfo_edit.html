@@ -10,8 +10,8 @@
             background: #ccecff;
             text-align: left;
             width: 60%;
-            padding: 3%;
-            font-size: 28px;
+            padding: 2%;
+            font-size: 16px;
             border: 2px solid white;
         }
         #wrap {
@@ -31,7 +31,7 @@
 <div id="wrap">
 
     {% if fail %}
-    <strong>수정에 실패하였습니다.</strong>
+    <strong style="text-align: center; color: #b52400; font-size: 24px"># 수정에 실패하였습니다.</strong>
     {% endif%}
     
 <form action="{% url 'account:myinfo_edit' %}" method="POST">
