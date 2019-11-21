@@ -10,6 +10,7 @@ urlpatterns = [
     path('home',main.views.home,name='home'),
     path('male_308',main.views.male_308,name='male_308'),
     path('howtouse',main.views.howtouse,name='howtouse'),
+    path('madeby',main.views.madeby,name='madeby'),
     path('notice',main.views.notice,name='notice'),
     path('detail',main.views.detail,name='detail'),
 ]

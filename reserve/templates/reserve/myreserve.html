@@ -4,6 +4,11 @@
 
 {% block content %}
 <style>
+    .title2 {
+    font-size: 20px;
+    text-align: center;
+    }
+
     table {
         padding: 1%;
         width: 100%;
@@ -38,7 +43,8 @@
     }
 </style>
 
-<p class="title" style="color: #014167">내 예약정보</p>
+<p class="title" style="color: #014167">내 예약</p>
+    <p class="title2" style="color: #b52400;"># 현재 시각 기준 유효한 예약만 표시됩니다.</p>
     <div id="wrap">
             <p class="title" style="color: #014167; margin-bottom: 0%;">세탁기</p>
         <table>
@@ -46,13 +52,22 @@
                 <td id="content" style="border-top-right-radius: 20px">{{user.pk}}</td></tr>
             <tr><td id="entity">사용자 카드번호</td> 
                 <td id="content">{{user.CardId}}</td></tr>
-            <tr><td id="entity">사용 예정 기기</td> 
-                <td id="content">어디에 무슨 기계</td></tr>
-            <tr><td id="entity" style="border-bottom-left-radius: 20px">예약유효시간</td> 
-                <td id="content" style="border-bottom-right-radius: 20px">시간~시간</td></tr>
+            <tr><td id="entity">기기정보</td>
+                {% if error1 == True %}
+                <td id="content"></td>
+                {% else %}
+                <td id="content">308관 남자 /  {{recent_W.MachineId}}번 세탁기</td>{% endif %}</tr>
+            <tr><td id="entity" style="border-bottom-left-radius: 20px">예약만료시간</td> 
+                {% if error1 == True %}
+                <td id="content" style="border-bottom-right-radius: 20px"></td>
+                {% else %}
+                <td id="content" style="border-bottom-right-radius: 20px">{{recent_W.ValidTime}}{% endif %}</td></tr>
         </table>
         <br>
+        {% if error1 == True %}
+        {% else %}
         <input class="button" type="button" onclick="location.href='/reserve/cancel'" value="예약취소"></input>
+        {% endif %}
     </div>
 
     <div id="wrap">
@@ -62,13 +77,22 @@
                 <td id="content" style="border-top-right-radius: 20px">{{user.pk}}</td></tr>
             <tr><td id="entity">사용자 카드번호</td> 
                 <td id="content">{{user.CardId}}</td></tr>
-            <tr><td id="entity">사용 예정 기기</td> 
-                <td id="content">어디에 무슨 기계</td></tr>
-            <tr><td id="entity" style="border-bottom-left-radius: 20px">예약유효시간</td> 
-                <td id="content" style="border-bottom-right-radius: 20px">시간~시간</td></tr>
+            <tr><td id="entity">기기정보</td>
+                {% if error2 == True %}
+                <td id="content"></td>
+                {% else %}
+                <td id="content">308관 남자 / {{recent_D.MachineId}}번 건조기</td> {% endif %}</tr>
+            <tr><td id="entity" style="border-bottom-left-radius: 20px">예약만료시간</td>
+                {% if error2 == True %}
+                <td id="content" style="border-bottom-right-radius: 20px"></td>
+                {% else %}
+                <td id="content" style="border-bottom-right-radius: 20px">{{recent_D.ValidTime}}{% endif %}</td></tr>
         </table>
         <br>
+        {% if error2 == True %}
+        {% else %}
         <input class="button" type="button" onclick="location.href='/reserve/cancel'" value="예약취소"></input>
+        {% endif %}
     </div>
 </div>
 

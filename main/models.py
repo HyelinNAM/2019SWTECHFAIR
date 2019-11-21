@@ -11,7 +11,7 @@ class Washer(models.Model):
     Number = models.IntegerField(default=1)
 
     def __str__(self):
-        return str(self.Number)+'번 세탁기'
+        return str(self.Number)
 
 class Dryer(models.Model):
     PLACE_CHOICES = (
@@ -24,4 +24,4 @@ class Dryer(models.Model):
     Number = models.IntegerField(default=1)
 
     def __str__(self):
-        return str(self.Number)+'번 건조기'
+        return str(self.Number)

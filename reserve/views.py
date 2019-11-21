@@ -113,21 +113,35 @@ def D_reserve(request,id):
     return render(request,'reserve/reserve.html')
 
 def myreserve(request):
-    User_ = request.user
-    try:
-        recent_W = W_Book.objects.filter(UserId=User_.UserName).order_by('-id')[0]
-    except:
-        recent_W = None
-    
-    try:
-        recent_D = D_Book.object.filter(UserId=User_.UserName).order_by('-id')[0]
-    except:
-        recent_D = None
+   User_ = request.user
+   recent_W = W_Book.objects.filter(UserId=User_.UserName).order_by('-id')[0]
+   recent_D = D_Book.objects.filter(UserId=User_.UserName).order_by('-id')[0]
+   
+   if recent_W.EndTime is None:
+       if recent_W.ValidTime <= timezone.now(): 
+            error1 = True #예약 무효 > 보여줄 것 X
+       else:
+            error1 = False #현재 유효한 예약 보여주면 됨.
+   else:
+       error1 = True #유효한 예약은 X > 보여줄 것 X
 
-    return render(request,'reserve/myreserve.html',{
-        'recent_W':recent_W,
-       # 'recent_D':recent_D,
-    })
+   if recent_D.EndTime is None:
+       if recent_D.ValidTime <= timezone.now(): 
+            error2 = True #예약 무효 > 보여줄 것 X
+       else:
+            error2 = False #현재 유효한 예약 보여주면 됨.
+   else:
+       error2 = True #유효한 예약은 X > 보여줄 것 X
+
+   return render(request,'reserve/myreserve.html',{
+       'recent_W':recent_W,
+       'recent_D':recent_D,
+       'error1':error1,
+       'error2':error2,
+   })
 
 def reserve_cancel(request):
-    return redirect('reserve/myreserve')
+    User_ = request.user
+    recent_W = W_Book.objects.filter(UserId=User_.UserName).order_by('-id')[0]
+    recent_W.delete()
+    return redirect('/reserve/myreserve')
