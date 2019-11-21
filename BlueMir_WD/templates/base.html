@@ -117,8 +117,9 @@
             <li>≡
                 <ul id="list">
                     <li><a href="{% url 'account:myinfo' %}" style="color: #ddd">내 정보</a></li>
+                    <li><a href="{% url 'reserve:myreserve' %}" style="color: #ddd">내 예약</a></li>
                     <li><a href="" style="color: #ddd">공지사항</a></li>
-                    <li><a href="" style="color: #ddd">이용안내</a></li>
+                    <li><a href="{% url 'main:howtouse' %}" style="color: #ddd">이용안내</a></li>
                 </ul>
             </li>
         </ul>

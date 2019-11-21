@@ -111,3 +111,10 @@ def D_reserve(request,id):
         pass
     
     return render(request,'reserve/reserve.html')
+
+def myreserve(request):
+    User_ = request.user
+    return render(request,'reserve/myreserve.html')
+
+def reserve_cancel(request):
+    return redirect('reserve/myreserve')

@@ -85,5 +85,8 @@ def male_308(request):
     return render(request,'main/male_308.html',{
         'W_Info':W_Info,
         'D_Info':D_Info,
-    }) 
+    })
+
+def howtouse(request):
+    return render(request,'main/howtouse.html')
    
