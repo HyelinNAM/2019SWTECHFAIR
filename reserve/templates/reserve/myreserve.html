@@ -1,6 +1,23 @@
 <p class="title" style="color: #014167">내 예약정보</p>
-<div style="text-align: center;">
+<div style="">
     <div id="wrap">
+        세탁기
+        <table>
+            <tr><td id="entity" style="border-top-left-radius: 20px">사용자 번호</td> 
+                <td id="content" style="border-top-right-radius: 20px">{{user.pk}}</td></tr>
+            <tr><td id="entity">사용자 카드번호</td> 
+                <td id="content">{{user.CardId}}</td></tr>
+            <tr><td id="entity">사용 예정 기기</td> 
+                <td id="content">어디에 무슨 기계</td></tr>
+            <tr><td id="entity" style="border-bottom-left-radius: 20px">예약유효시간</td> 
+                <td id="content" style="border-bottom-right-radius: 20px">시간~시간</td></tr>
+        </table>
+        <br>
+        <input class="button" type="button" onclick="location.href='/reserve/cancel'" value="예약취소"></input>
+    </div>
+
+    <div id="wrap">
+        건조기
         <table>
             <tr><td id="entity" style="border-top-left-radius: 20px">사용자 번호</td> 
                 <td id="content" style="border-top-right-radius: 20px">{{user.pk}}</td></tr>

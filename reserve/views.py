@@ -114,7 +114,20 @@ def D_reserve(request,id):
 
 def myreserve(request):
     User_ = request.user
-    return render(request,'reserve/myreserve.html')
+    try:
+        recent_W = W_Book.objects.filter(UserId=User_.UserName).order_by('-id')[0]
+    except:
+        recent_W = None
+    
+    try:
+        recent_D = D_Book.object.filter(UserId=User_.UserName).order_by('-id')[0]
+    except:
+        recent_D = None
+
+    return render(request,'reserve/myreserve.html',{
+        'recent_W':recent_W,
+       # 'recent_D':recent_D,
+    })
 
 def reserve_cancel(request):
     return redirect('reserve/myreserve')
