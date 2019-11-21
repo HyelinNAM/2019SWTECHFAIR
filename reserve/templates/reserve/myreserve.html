@@ -1,5 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}myreserve{% endblock %}
+
+{% block content %}
+<style>
+    table {
+        padding: 1%;
+        width: 100%;
+        font-size: 20px;
+        background: #ccc;
+        border-radius: 20px;
+    }
+    td {
+        padding: 2%;
+    }
+    #entity {
+        background: #ccecff;
+        text-align: center;
+    }
+    #content {
+        background: white;
+        text-align: left;
+        width: 60%;
+    }
+    #wrap {
+        text-align: center;
+        width: 40%;
+        padding-left: 5%;
+        padding-right: 5%;
+        float: left;
+    }
+    @media all and (max-width: 800px){
+        #wrap {
+            width: 60%;
+            padding-left: 20%;
+        }
+    }
+</style>
+
 <p class="title" style="color: #014167">내 예약정보</p>
-<div style="">
     <div id="wrap">
         세탁기
         <table>
@@ -32,3 +71,6 @@
         <input class="button" type="button" onclick="location.href='/reserve/cancel'" value="예약취소"></input>
     </div>
 </div>
+
+
+{% endblock %}
