@@ -89,4 +89,13 @@ def male_308(request):
 
 def howtouse(request):
     return render(request,'main/howtouse.html')
-   
+
+def notice(request):
+    time_now = timezone.now()
+    return render(request,'main/notice.html', {
+    'time_now':time_now,
+    })   
+
+def detail(request):
+    return render(request,'main/detail.html')
+

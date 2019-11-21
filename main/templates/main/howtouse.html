@@ -4,8 +4,39 @@
 
 {% block content %}
 
+<style>
+    table {
+        width: 100%;
+        font-size: 20px;
+        background: #ccc;
+    }
+    td {
+        padding: 3%;
+        background: white;
+        text-align: left;
+        vertical-align: top;
+    }
+    #wrap {
+        text-align: center;
+        width: 60%;
+        font-size: 20px;
+        text-align: center;
+    }
+    @media all and (max-width: 800px){
+        #wrap {
+            width: 80%;
+            padding-left: 10%;
+        }
+    }
+</style>
 
-<p class="title" style="color: #014167">이용방법</p>
+        <p class="title" style="color: #014167">이용안내</p><br>
+    <div id="wrap">    
+        <table><td>내용</td></table>
+    </div>
+
 
 
 {% endblock %}
+
+

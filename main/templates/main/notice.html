@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}notice{% endblock %}
+
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        font-size: 20px;
+        background: #ccc;
+    }
+    tr {
+        padding: 2%;
+        height: 30px;
+    }
+    th {
+        background: #aaa;
+        text-align: center;
+    }
+    td {
+        background: white;
+        text-align: left;
+    }
+    #wrap {
+        text-align: center;
+        width: 60%;
+        padding-left: 20%;
+        float: left;
+    }
+    @media all and (max-width: 800px){
+        #wrap {
+            width: 80%;
+            padding-left: 10%;
+        }
+    }
+</style>
+
+    <div id="wrap">
+            <p class="title" style="color: #014167">공지사항</p>
+        <table>
+            <tr><th>No.</th> 
+                <th>내용</th>
+                <th>작성시간</th></tr>
+            <tr><td>1</td>
+                <td><a href="{% url 'main:detail' %}" style="color: black;">블루미르홀 308관 남자 1번세탁기 수리 중</a></td>
+                <td>{{time_now}}</td></tr>
+            <tr><td></td> 
+                <td>
+                <td></td>   
+                </td></tr>    
+        </table>
+        <br>
+    </div>
+</div>
+
+
+{% endblock %}

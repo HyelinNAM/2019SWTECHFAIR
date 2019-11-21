@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}detail{% endblock %}
+
+{% block content %}
+
+<style>
+    table {
+        width: 100%;
+        font-size: 20px;
+        background: #ccc;
+    }
+    tr {
+        height: 300px;
+    }
+    th {
+        background: #aaa;
+        width: 30px;
+        text-align: center;
+        vertical-align: auto;
+    }
+    td {
+        padding: 3%;
+        background: white;
+        text-align: left;
+        vertical-align: top;
+    }
+    #wrap {
+        text-align: center;
+        width: 60%;
+        padding-left: 20%;
+        float: left;
+    }
+    @media all and (max-width: 800px){
+        #wrap {
+            width: 80%;
+            padding-left: 10%;
+        }
+    }
+</style>
+
+            <p class="title" style="color: #014167; margin-bottom: 0%;">공지사항 </p><br>
+        <div id="wrap">
+        <table>
+            <tr><th>1</th> 
+                <td>금일 오후 5시까지 블루미르홀 308관 남자 1번세탁기가 수리 중이므로 사용이 불가합니다.</td>
+ 
+        </table>
+        <br>
+        <a href="{% url 'main:notice' %}">
+        <input class="button" type="button" onclick="location.href='/main/write'" value="목록"></input></a>
+    </div>
+
+
+
+{% endblock %}
